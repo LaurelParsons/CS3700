@@ -1,0 +1,7 @@
+My high level approach to this problem was to start by parsing the given arguments. Since for every operation at least one parameter must be a ftp url, I first find that parameter then parse it to retrieve the username, password, hostname, and port number. Using this information, I can set up the connection to the ftp server.
+Once the connection is established, I check which operation was passed in and call the corresponding function to handle it. 
+I have several helper methods for frequent computations like sending a message to the server, parsing a response, or establishing the data channel.
+
+My biggest challenge was understanding exactly what commands to call for the copy function and dealing with local paths. It took me a while to find out about the CWD command, and I didn't understand how to use STOR without it. Additionally there were a lot of windows-isms with pathing that were a headache. 
+
+I tested my code continuously as I built it. I started with establishing a connection to the server, ensured that worked, then moved onto the operation functions. After writing each one I tested it using the command line and the ls operation to observe what was in the server, along with the IDE's debugger to debug internal bugs. 
